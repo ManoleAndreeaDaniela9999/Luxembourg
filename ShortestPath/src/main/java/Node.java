@@ -16,6 +16,9 @@ public class Node {
     @XmlAttribute
     private long latitude;
 
+    private long X; //normalized lat
+    private long Y; //normalised long
+
     public long getId() {
         return id;
     }
@@ -30,6 +33,7 @@ public class Node {
 
     public void setLongitude(long longitude) {
         this.longitude = longitude;
+
     }
 
     public long getLatitude() {

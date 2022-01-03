@@ -5,7 +5,11 @@ import jakarta.xml.bind.Unmarshaller;
 
 import java.io.File;
 
+
 public class Main {
+
+static int MAP_WIDTH =  1000;
+static int MAP_HEIGHT =  1000;
 
     public static void main(String[] args) {
 
