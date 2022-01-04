@@ -8,37 +8,13 @@ import java.io.File;
 
 public class Main {
 
-static int MAP_WIDTH =  1000;
-static int MAP_HEIGHT =  1000;
+static int MAP_WIDTH =  1360;
+static int MAP_HEIGHT =  768;
+static String XML_FILE_PATH = "src/main/resources/map2.xml";
 
     public static void main(String[] args) {
 
-        jakarta.xml.bind.JAXBContext jaxbContext = null;
-        try {
-
-            // Normal JAXB RI
-            jaxbContext = JAXBContext.newInstance(Map.class);
-
-            // EclipseLink MOXy needs jaxb.properties at the same package with Fruit.class
-            // Alternative, I prefer define this via eclipse JAXBContextFactory manually.
-            //jaxbContext = org.eclipse.persistence.jaxb.JAXBContextFactory
-            //        .createContext(new Class[]{Node.class}, null);
-
-            File file = new File("src/main/resources/map2.xml");
-
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-
-            Map map = (Map) jaxbUnmarshaller.unmarshal(file);
-
-            for (Arc a:
-                 map.getArcs().getArcs()) {
-                System.out.println(a);
-            }
-
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-
+        LuxFrame luxFrame = new LuxFrame();
     }
 
 }

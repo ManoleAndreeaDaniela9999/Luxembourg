@@ -4,20 +4,20 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Vector;
 
 @XmlRootElement(name = "nodes")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Nodes implements Serializable {
 
     @XmlElement(name = "node")
-    private List<Node> nodes = null;
+    private Vector<Node> nodes = null;
 
-    public List<Node> getNodes() {
+    public Vector<Node> getNodes() {
         return nodes;
     }
 
-    public void setNodes(List<Node> nodes) {
+    public void setNodes(Vector<Node> nodes) {
         this.nodes = nodes;
     }
 }

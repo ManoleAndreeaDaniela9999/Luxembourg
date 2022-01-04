@@ -8,40 +8,49 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class Node {
 
     @XmlAttribute
-    private long id;
+    private String id;
 
     @XmlAttribute
-    private long longitude;
+    private Float longitude;
 
     @XmlAttribute
-    private long latitude;
+    private Float latitude;
 
-    private long X; //normalized lat
-    private long Y; //normalised long
+    public Float X; //normalized lon
+    public Float Y; //normalised lat
+    private Float diameter = 2.0f;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public long getLongitude() {
+    public Float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(Float longitude) {
         this.longitude = longitude;
 
     }
 
-    public long getLatitude() {
+    public Float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(Float latitude) {
         this.latitude = latitude;
+    }
+
+    public Float getDiam() {
+        return diameter;
+    }
+
+    public Float getRadius() {
+        return diameter / 2;
     }
 
     @Override

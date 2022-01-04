@@ -8,27 +8,30 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class Arc {
 
     @XmlAttribute
-    private long from;
+    private String from;
 
     @XmlAttribute
-    private long to;
+    private String to;
 
     @XmlAttribute
     private int length;
 
-    public long getFrom() {
+    private Node startNode;
+    private Node endNode;
+
+    public String getFrom() {
         return from;
     }
 
-    public void setFrom(long from) {
+    public void setFrom(String from) {
         this.from = from;
     }
 
-    public long getTo() {
+    public String getTo() {
         return to;
     }
 
-    public void setTo(long to) {
+    public void setTo(String to) {
         this.to = to;
     }
 
@@ -47,5 +50,23 @@ public class Arc {
                 ", to='" + to + '\'' +
                 ", length='" + length + '\'' +
                 '}';
+    }
+
+    public Node getStartNode() {
+        return startNode;
+    }
+
+    public void setStartNode(Node startNode) {
+        this.startNode = startNode;
+        this.from = startNode.getId();
+    }
+
+    public Node getEndNode() {
+        return endNode;
+    }
+
+    public void setEndNode(Node endNode) {
+        this.endNode = endNode;
+        this.to = endNode.getId();
     }
 }
