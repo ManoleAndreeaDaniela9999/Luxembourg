@@ -62,6 +62,7 @@ public class Arc {
     public void setStartNode(Node startNode) {
         this.startNode = startNode;
         this.from = startNode.getId();
+
     }
 
     public Node getEndNode() {
@@ -71,7 +72,11 @@ public class Arc {
     public void setEndNode(Node endNode) {
         this.endNode = endNode;
         this.to = endNode.getId();
-        this.startNode.addNeighbour(endNode);
+    }
+
+    public void settleNeighbours() {
+        if (startNode != null)
+            this.startNode.addNeighbour(endNode);
     }
 
     public Color getColor() {

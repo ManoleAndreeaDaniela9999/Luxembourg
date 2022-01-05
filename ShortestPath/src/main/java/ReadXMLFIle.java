@@ -28,16 +28,19 @@ public class ReadXMLFIle {
             map = (Map) jaxbUnmarshaller.unmarshal(file);
 
             normaliseCoords();
-            int i = 0;
-            for (Arc a :
-                 map.getArcs().getArcs()) {
-                i+=1;
-                a.setStartNode(getNodeWith(a.getFrom()));
-                a.setEndNode(getNodeWith(a.getTo()));
-            }
+            upgradeArcs();
 
         } catch (JAXBException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void upgradeArcs() {
+        for (Arc a :
+                map.getArcs().getArcs()) {
+            a.setStartNode(getNodeWith(a.getFrom()));
+            a.setEndNode(getNodeWith(a.getTo()));
+            a.settleNeighbours();
         }
     }
 
