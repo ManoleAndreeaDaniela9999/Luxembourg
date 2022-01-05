@@ -32,8 +32,8 @@ public class ReadXMLFIle {
             for (Arc a :
                  map.getArcs().getArcs()) {
                 i+=1;
-                a.setStartNode(findNode(a.getFrom()));
-                a.setEndNode(findNode(a.getTo()));
+                a.setStartNode(getNodeWith(a.getFrom()));
+                a.setEndNode(getNodeWith(a.getTo()));
             }
 
         } catch (JAXBException e) {
@@ -41,13 +41,8 @@ public class ReadXMLFIle {
         }
     }
 
-    private Node findNode(String id) {
-        for (Node n:
-             map.getNodes().getNodes()) {
-            if(n.getId().equals(id))
-                return n;
-        }
-        return null;
+    private Node getNodeWith(String id){
+        return map.getNodes().getNodes().elementAt(Integer.parseInt(id));
     }
 
     private void normaliseCoords() {
