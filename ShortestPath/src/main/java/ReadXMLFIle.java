@@ -47,9 +47,9 @@ public class ReadXMLFIle {
 
     private void normaliseCoords() {
 
-        Float minX = 100000000.0f;
+        Float minX = Float.MAX_VALUE;
         Float maxX = 0.0f;
-        Float minY = 100000000.0f;
+        Float minY = Float.MAX_VALUE;
         Float maxY = 0.0f;
         for (Node n :
                 map.getNodes().getNodes()) {

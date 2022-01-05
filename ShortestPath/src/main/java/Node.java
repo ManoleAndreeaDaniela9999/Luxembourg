@@ -18,7 +18,7 @@ public class Node {
 
     public Float X; //normalized lon
     public Float Y; //normalised lat
-    private Float diameter = 2.0f;
+    private Float diameter = 1.0f;
 
     public String getId() {
         return id;

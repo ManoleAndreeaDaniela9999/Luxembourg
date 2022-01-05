@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 
 public class LuxPanel extends JPanel {
@@ -7,13 +8,15 @@ public class LuxPanel extends JPanel {
     ReadXMLFIle fileReader;
     Vector<Node> nodeList;
     Vector<Arc> arcList;
-
+    LuxMouseListener mouseListener;
 
     public LuxPanel(){
         fileReader = new ReadXMLFIle(Main.XML_FILE_PATH);
         fileReader.read();
         nodeList = fileReader.getNodes();
         arcList = fileReader.getArcs();
+        mouseListener = new LuxMouseListener(nodeList,arcList);
+        this.addMouseListener(mouseListener);
         this.setBackground(Color.PINK);
     }
     @Override

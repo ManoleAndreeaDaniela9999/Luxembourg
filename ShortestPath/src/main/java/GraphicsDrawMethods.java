@@ -6,7 +6,7 @@ public class GraphicsDrawMethods {
         Point startPos = new Point(Math.round(arc.getStartNode().X),Math.round(arc.getStartNode().Y));
         Point endPos = new Point(Math.round(arc.getEndNode().X),Math.round(arc.getEndNode().Y));
 
-        g.setColor(Color.black);
+        g.setColor(arc.getColor());
         g.drawLine(startPos.x, startPos.y, endPos.x, endPos.y);
 
     }

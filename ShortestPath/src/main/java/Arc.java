@@ -3,6 +3,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.awt.*;
+
 @XmlRootElement(name = "arc")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Arc {
@@ -18,6 +20,7 @@ public class Arc {
 
     private Node startNode;
     private Node endNode;
+    private Color color = Color.BLACK;
 
     public String getFrom() {
         return from;
@@ -68,5 +71,13 @@ public class Arc {
     public void setEndNode(Node endNode) {
         this.endNode = endNode;
         this.to = endNode.getId();
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }
