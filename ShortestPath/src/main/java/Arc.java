@@ -71,6 +71,7 @@ public class Arc {
     public void setEndNode(Node endNode) {
         this.endNode = endNode;
         this.to = endNode.getId();
+        this.startNode.addNeighbour(endNode);
     }
 
     public Color getColor() {
