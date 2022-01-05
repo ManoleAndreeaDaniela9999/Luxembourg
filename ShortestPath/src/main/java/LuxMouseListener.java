@@ -25,6 +25,14 @@ public class LuxMouseListener implements MouseListener {
         }
         if (mouseClickCount == 1) {
             endN = n;
+            if(LuxFrame.activeOption == LuxFrame.Option.DIJKSTRA) {
+                DijkstraAlg d = new DijkstraAlg(nodes, arcs);
+                d.solve();
+            }
+            if(LuxFrame.activeOption == LuxFrame.Option.BELLMAN){
+                BellmanFordAlg b = new BellmanFordAlg(nodes, arcs);
+                b.solve();
+            }
         }
         if (mouseClickCount == 2) {
             reset();
@@ -53,6 +61,10 @@ public class LuxMouseListener implements MouseListener {
         for (Arc a :
                 arcs) {
             a.setColor(Color.black);
+        }
+        for (Node node:
+             nodes) {
+            node.setWasVisited(false);
         }
     }
 
