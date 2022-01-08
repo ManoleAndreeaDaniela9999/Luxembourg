@@ -21,6 +21,7 @@ public class Arc {
     private Node startNode;
     private Node endNode;
     private Color color = Color.BLACK;
+    private Integer width = 1;
 
     public Integer getFrom() {
         return from;
@@ -83,5 +84,13 @@ public class Arc {
     public boolean setColor(Color color) {
         this.color = color;
         return true;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getWidth() {
+        return width;
     }
 }

@@ -34,8 +34,12 @@ public class LuxMouseListener implements MouseListener {
                 d.solve(startN);
                 Vector<Node> solution = d.findShortestPath(endN);
                 for (int i = 0; i < solution.size() - 1; i++) {
-                    solution.elementAt(i).getArcTo(solution.elementAt(i+1)).setColor(Color.green);
-                    solution.elementAt(i+1).getArcTo(solution.elementAt(i)).setColor(Color.green);
+                    Arc a = solution.elementAt(i).getArcTo(solution.elementAt(i + 1));
+                    a.setColor(Color.green);
+                    a.setWidth(3);
+                    a = solution.elementAt(i + 1).getArcTo(solution.elementAt(i));
+                    a.setColor(Color.green);
+                    a.setWidth(3);
                 }
 
             }
@@ -73,6 +77,7 @@ public class LuxMouseListener implements MouseListener {
         for (Arc a :
                 arcs) {
             a.setColor(Color.black);
+            a.setWidth(1);
         }
         for (Node node :
                 nodes) {

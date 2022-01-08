@@ -7,7 +7,10 @@ public class GraphicsDrawMethods {
         Point endPos = new Point(Math.round(arc.getEndNode().X),Math.round(arc.getEndNode().Y));
 
         g.setColor(arc.getColor());
-        g.drawLine(startPos.x, startPos.y, endPos.x, endPos.y);
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setStroke(new BasicStroke(arc.getWidth()));
+        g2.drawLine(startPos.x, startPos.y, endPos.x, endPos.y);
 
     }
 
