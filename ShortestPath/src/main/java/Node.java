@@ -10,7 +10,7 @@ import java.util.Vector;
 public class Node {
 
     @XmlAttribute
-    private String id;
+    private Integer id;
 
     @XmlAttribute
     private Float longitude;
@@ -20,16 +20,17 @@ public class Node {
 
     public Float X; //normalized lon
     public Float Y; //normalised lat
-    private Float diameter = 1.0f;
+    private Float diameter = 0.5f;
 
     private boolean wasVisited;
-    private Vector<Node> neighbours = new Vector<>();
+    private Vector<NodeCostPair> neighbours = new Vector<>();
+   // private Vector<Arc> neighboursArcs = new Vector<>();
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -67,7 +68,7 @@ public class Node {
                 '}';
     }
 
-    public boolean isWasVisited() {
+    public boolean wasVisited() {
         return wasVisited;
     }
 
@@ -75,15 +76,24 @@ public class Node {
         this.wasVisited = wasVisited;
     }
 
-    public Vector<Node> getNeighbours() {
+    public Vector<NodeCostPair> getNeighbours() {
         return neighbours;
     }
 
-    public void setNeighbours(Vector<Node> neighbours) {
+    public void setNeighbours(Vector<NodeCostPair> neighbours) {
         this.neighbours = neighbours;
     }
 
-    public void addNeighbour(Node n) {
-        neighbours.add(n);
+    public void addNeighbour(NodeCostPair p) {
+        neighbours.add(p);
+        //neighboursArcs.add(respectiveArc);
+    }
+
+    public Arc getArcTo(Node destination) {
+        for (int i = 0; i < neighbours.size(); i++) {
+            if (neighbours.elementAt(i).node == destination)
+                return neighbours.elementAt(i).arc;
+        }
+        return  null;
     }
 }

@@ -6,37 +6,49 @@ import java.util.Vector;
 public class LuxMouseListener implements MouseListener {
 
 
-    private int mouseClickCount = 0;
-    Node startN = null;
-    Node endN = null;
-    Vector<Node> nodes;
-    Vector<Arc> arcs;
+    private int mouseClickCount;
+    private Node startN = null;
+    private Node endN = null;
+    private Vector<Node> nodes;
+    private Vector<Arc> arcs;
+    private DijkstraAlg d;
 
     public LuxMouseListener(Vector<Node> nodes, Vector<Arc> arcs) {
         this.nodes = nodes;
         this.arcs = arcs;
+        mouseClickCount = 0;
+        d = new DijkstraAlg(nodes.size());
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println("Mouse clicked at " + e.getPoint());
         Node n = CalculateEuclidianDistance(e.getPoint().x, e.getPoint().y);
         if (mouseClickCount == 0) {
             startN = n;
         }
         if (mouseClickCount == 1) {
+            int count = 0;
             endN = n;
-            if(LuxFrame.activeOption == LuxFrame.Option.DIJKSTRA) {
-                DijkstraAlg d = new DijkstraAlg(nodes, arcs);
-                d.solve();
+            if (LuxFrame.activeOption == LuxFrame.Option.DIJKSTRA) {
+                d.solve(startN);
+                Vector<Node> solution = d.findShortestPath(endN);
+                for (int i = 0; i < solution.size() - 1; i++) {
+                    solution.elementAt(i).getArcTo(solution.elementAt(i+1)).setColor(Color.green);
+                    solution.elementAt(i+1).getArcTo(solution.elementAt(i)).setColor(Color.green);
+                }
+
             }
-            if(LuxFrame.activeOption == LuxFrame.Option.BELLMAN){
+            if (LuxFrame.activeOption == LuxFrame.Option.BELLMAN) {
                 BellmanFordAlg b = new BellmanFordAlg(nodes, arcs);
                 b.solve();
             }
         }
         if (mouseClickCount == 2) {
             reset();
+            System.out.println("reset");
         }
+        LuxFrame.luxPanel.repaint();
         mouseClickCount = (mouseClickCount + 1) % 3;
     }
 
@@ -46,9 +58,9 @@ public class LuxMouseListener implements MouseListener {
         for (Node n :
                 nodes) {
             Double dist;
-            dist = Point.distance(x,y,n.X,n.Y);
-            if(dist < minDistance){
-                minDistance  = dist;
+            dist = Point.distance(x, y, n.X, n.Y);
+            if (dist < minDistance) {
+                minDistance = dist;
                 result = n;
             }
         }
@@ -62,15 +74,15 @@ public class LuxMouseListener implements MouseListener {
                 arcs) {
             a.setColor(Color.black);
         }
-        for (Node node:
-             nodes) {
+        for (Node node :
+                nodes) {
             node.setWasVisited(false);
         }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("You pressed at " + e.getPoint());
+        //System.out.println("You pressed at " + e.getPoint());
     }
 
     @Override

@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9912be4-6fe1-4d4f-aaae-f6f72d2cdabf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/NodeCostPair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Arc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DijkstraAlg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DijkstraAlg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GraphicsDrawMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GraphicsDrawMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LuxFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LuxFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LuxMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LuxMouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LuxPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LuxPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ReadXMLFIle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReadXMLFIle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,11 +98,37 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Node.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/LuxMouseListener.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="21" />
+          <line>51</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DijkstraAlg.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/DijkstraAlg.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="DijkstraAlg" memberName="nodes" />
+        <PinnedItemInfo parentTag="NodeCostPair" memberName="node" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((DijkstraAlg)this).prev" language="JAVA" custom="DijkstraAlg" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -10,11 +10,10 @@ public class LuxFrame extends JFrame implements ActionListener {
         BELLMAN
     }
 
-    LuxMouseListener ms;
     JMenuItem option1;
     JMenuItem option2;
     JMenuBar menu;
-    private LuxPanel luxPanel;
+    public static LuxPanel luxPanel;
     static public Option activeOption = Option.DIJKSTRA;
 
     public LuxFrame(){
@@ -46,15 +45,16 @@ public class LuxFrame extends JFrame implements ActionListener {
         if (e.getSource() == option1){
             activeOption = Option.DIJKSTRA;
             System.out.println("You changed search alg. to DIJKSTRA");
-            ms.reset();
             repaint();
         }
 
         if (e.getSource() == option2){
             activeOption = Option.BELLMAN;
             System.out.println("You changed search alg. to BELLMAN-FORD");
-            ms.reset();
             repaint();
         }
+    }
+    JPanel getMapPanel(){
+        return luxPanel;
     }
 }

@@ -12,7 +12,7 @@ public class GraphicsDrawMethods {
     }
 
     public static void DrawNode(Node node, Graphics g) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.black);
         g.fillOval(Math.round(node.X - node.getRadius()), Math.round(node.Y - node.getRadius()), Math.round(node.getDiam()), Math.round(node.getDiam()));
         g.drawOval(Math.round(node.X - node.getRadius()), Math.round(node.Y - node.getRadius()), Math.round(node.getDiam()), Math.round(node.getDiam()));
     }

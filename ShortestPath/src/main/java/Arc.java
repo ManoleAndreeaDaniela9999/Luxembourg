@@ -10,10 +10,10 @@ import java.awt.*;
 public class Arc {
 
     @XmlAttribute
-    private String from;
+    private Integer from;
 
     @XmlAttribute
-    private String to;
+    private Integer to;
 
     @XmlAttribute
     private int length;
@@ -22,19 +22,19 @@ public class Arc {
     private Node endNode;
     private Color color = Color.BLACK;
 
-    public String getFrom() {
+    public Integer getFrom() {
         return from;
     }
 
-    public void setFrom(String from) {
+    public void setFrom(Integer from) {
         this.from = from;
     }
 
-    public String getTo() {
+    public Integer getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(Integer to) {
         this.to = to;
     }
 
@@ -61,8 +61,6 @@ public class Arc {
 
     public void setStartNode(Node startNode) {
         this.startNode = startNode;
-        this.from = startNode.getId();
-
     }
 
     public Node getEndNode() {
@@ -71,19 +69,19 @@ public class Arc {
 
     public void setEndNode(Node endNode) {
         this.endNode = endNode;
-        this.to = endNode.getId();
     }
 
     public void settleNeighbours() {
         if (startNode != null)
-            this.startNode.addNeighbour(endNode);
+            this.startNode.addNeighbour(new NodeCostPair(endNode, this));
     }
 
     public Color getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public boolean setColor(Color color) {
         this.color = color;
+        return true;
     }
 }

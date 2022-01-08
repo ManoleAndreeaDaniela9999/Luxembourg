@@ -22,13 +22,13 @@ public class LuxPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (Node node :
-                nodeList) {
-            GraphicsDrawMethods.DrawNode(node, g);
-        }
         for (Arc arc :
                 arcList) {
             GraphicsDrawMethods.DrawSimpleArc(arc, g);
+        }
+        for (Node node :
+                nodeList) {
+            GraphicsDrawMethods.DrawNode(node, g);
         }
     }
 }

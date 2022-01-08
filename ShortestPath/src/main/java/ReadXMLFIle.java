@@ -44,8 +44,8 @@ public class ReadXMLFIle {
         }
     }
 
-    private Node getNodeWith(String id){
-        return map.getNodes().getNodes().elementAt(Integer.parseInt(id));
+    private Node getNodeWith(Integer id){
+        return map.getNodes().getNodes().elementAt(id);
     }
 
     private void normaliseCoords() {
@@ -63,12 +63,11 @@ public class ReadXMLFIle {
             minY = Math.min(minY, n.getLatitude());
             maxY = Math.max(minY, n.getLatitude());
         }
-        Float scaleX = 0.23f;
-        Float scaleY = 0.5f;
+
         for (Node n :
                 map.getNodes().getNodes()) {
-            n.X = (n.X - minX) / (maxX - minX) * Main.MAP_WIDTH * scaleX;
-            n.Y = (n.Y - minY) / (maxY - minY) * Main.MAP_HEIGHT * scaleY;
+            n.X = (n.X - minX) / (maxX - minX) * Main.MAP_WIDTH * Main.SCALE_X;
+            n.Y = (n.Y - minY) / (maxY - minY) * Main.MAP_HEIGHT * Main.SCALE_Y;
         }
     }
 
