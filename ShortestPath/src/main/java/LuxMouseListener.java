@@ -12,12 +12,14 @@ public class LuxMouseListener implements MouseListener {
     private Vector<Node> nodes;
     private Vector<Arc> arcs;
     private DijkstraAlg d;
+    private BellmanFordAlg b;
 
     public LuxMouseListener(Vector<Node> nodes, Vector<Arc> arcs) {
         this.nodes = nodes;
         this.arcs = arcs;
         mouseClickCount = 0;
         d = new DijkstraAlg(nodes.size());
+        b = new BellmanFordAlg(arcs,nodes.size());
     }
 
     @Override
@@ -30,6 +32,7 @@ public class LuxMouseListener implements MouseListener {
         if (mouseClickCount == 1) {
             int count = 0;
             endN = n;
+            //Dijkstra
             if (LuxFrame.activeOption == LuxFrame.Option.DIJKSTRA) {
                 d.solve(startN);
                 Vector<Node> solution = d.findShortestPath(endN);
@@ -43,9 +46,18 @@ public class LuxMouseListener implements MouseListener {
                 }
 
             }
+            //Bellman
             if (LuxFrame.activeOption == LuxFrame.Option.BELLMAN) {
-                BellmanFordAlg b = new BellmanFordAlg(nodes, arcs);
-                b.solve();
+                b.solve(startN, arcs);
+                Vector<Node> solution = b.findShortestPath(endN);
+                for (int i = 0; i < solution.size() - 1; i++) {
+                    Arc a = solution.elementAt(i).getArcTo(solution.elementAt(i + 1));
+                    a.setColor(Color.green);
+                    a.setWidth(3);
+                    a = solution.elementAt(i + 1).getArcTo(solution.elementAt(i));
+                    a.setColor(Color.green);
+                    a.setWidth(3);
+                }
             }
         }
         if (mouseClickCount == 2) {

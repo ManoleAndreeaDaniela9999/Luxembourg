@@ -55,7 +55,7 @@ public class DijkstraAlg {
         Vector<Node> path = new Vector<>();
         if (distances[end.getId()] == Integer.MAX_VALUE) return null;
         for (Node n = end; n != null; n = prev[n.getId()]) {
-            path.add(n);//TODO: SOLVE ERROR HEAP SPACE OUT OF MEMORY
+            path.add(n);
         }
         Collections.reverse(path);
         return path;
